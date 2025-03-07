@@ -66,10 +66,19 @@ const Section2 = styled.section`
     color: #dca060;
     font-size: calc(2px + 1.2vw);
     border-bottom: 0.4vh dashed #343538;
-    
+
     h3 {
         font-size: calc(2px + 1.5vw);
         color: #ffcf9b;
+    }
+
+    @media screen and (max-width: 900px) {
+        padding: 3vh 3vw 7vh 3vw;
+
+        h3 {
+            text-align: center;
+            padding-bottom: 2vh;
+        }
     }
 `
 
@@ -83,8 +92,16 @@ const Section3 = styled.section`
         font-size: calc(2px + 1.5vw);
         color: #ffcf9b;
     }
-`
 
+    @media screen and (max-width: 900px) {
+        padding: 3vh 3vw 7vh 3vw;
+
+        h3 {
+            text-align: center;
+            padding-bottom: 2vh;
+        }
+    }
+`
 
 
 export default function AboutMe() {

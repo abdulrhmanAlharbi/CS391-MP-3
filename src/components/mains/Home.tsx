@@ -61,12 +61,21 @@ const ImgBioParent = styled.div`
     justify-content: center;
     width: 100%;
     border-bottom: #343538 1vh solid;
+    @media screen and (max-width: 900px) {
+        flex-direction: column;
+        align-items: center;
+        height: 70%;
+    }
 `
 
 const ImgContainer = styled.div`
     width: 40%;
     margin: 6vh;
     border: #343538 0.45vh solid;
+    @media screen and (max-width: 900px) {
+        margin: 4vh;
+
+    }
 `
 const Img = styled.img`
     width: 100%;
@@ -76,6 +85,9 @@ const Img = styled.img`
 const BioContainer = styled.div`
     width: 100%;
     padding-top: 6vh;
+    @media screen and (max-width: 900px) {
+        padding-top: unset;
+    }
 `
 
 const Bio = styled.p`
@@ -84,6 +96,12 @@ const Bio = styled.p`
     padding-right: 2vw;
     color: #dca060;
     font-size: calc(2px + 1.3vw);
+    @media screen and (max-width: 900px) {
+        font-size: calc(2px + 2vw);
+        text-align: center;
+        padding-right: unset;
+        padding: 2vw;    
+    }
 `
 
 const BioSpan = styled.span`

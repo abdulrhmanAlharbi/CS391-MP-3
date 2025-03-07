@@ -60,6 +60,7 @@ const Section1 = styled.section`
     color: #dca060;
     font-size: calc(2px + 1.2vw);
     border-bottom: 0.4vh dashed #343538;
+
 `
 const Section2 = styled.section`
     padding: 6vh 3vw 7vh 3vw;
@@ -70,6 +71,15 @@ const Section2 = styled.section`
     h3 {
         font-size: calc(2px + 1.5vw);
         color: #ffcf9b;
+    }
+
+    @media screen and (max-width: 900px) {
+        padding: 3vh 3vw 7vh 3vw;
+        
+        h3 {
+            text-align: center;
+            padding-bottom: 2vh;
+        }
     }
 `
 
@@ -82,6 +92,15 @@ const Section3 = styled.section`
     h3 {
         font-size: calc(2px + 1.5vw);
         color: #ffcf9b;
+    }
+
+    @media screen and (max-width: 900px) {
+        padding: 3vh 3vw 7vh 3vw;
+
+        h3 {
+            text-align: center;
+            padding-bottom: 2vh;
+        }
     }
 `
 
