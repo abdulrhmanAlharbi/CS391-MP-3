@@ -4,12 +4,12 @@ import Nav from "./components/Nav";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 
-import Home from "./components/Mains/Home";
-import AboutMe  from "./components/Mains/AboutMe";
-import Projects from "./components/Mains/Projects";
-import Skills  from "./components/Mains/Skills";
-import Experience  from "./components/Mains/Experience";
-import ContactMe  from "./components/Mains/ContactMe";
+import Home from "./components/mains/Home";
+import AboutMe  from "./components/mains/AboutMe";
+import Projects from "./components/mains/Projects";
+import Skills  from "./components/mains/Skills";
+import Experience  from "./components/mains/Experience";
+import ContactMe  from "./components/mains/ContactMe";
 
 
 const PageWrapper = styled.div`
