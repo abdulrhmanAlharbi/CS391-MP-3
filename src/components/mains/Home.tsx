@@ -114,7 +114,7 @@ export default function Home() {
 
             <ImgBioParent>
                 <ImgContainer>
-                    <Img src="/public/picture.jpeg" alt="A picture of Abdulrhman Alharbi" />
+                    <Img src="/picture.jpeg" alt="A picture of Abdulrhman Alharbi" />
                 </ImgContainer>
 
                 <BioContainer>

@@ -26,7 +26,7 @@ const PageImg = styled.img`
 export default function Header() {
     return (
         <PageHeader>
-            <PageImg src="/public/maine-sunrise-crop.jpg" alt="image of sunset at the header of the page" />
+            <PageImg src="/maine-sunrise-crop.jpg" alt="image of sunset at the header of the page" />
             <h1>Abdulrhman Alharbi</h1>
             <p>My Online Resume</p>
         </PageHeader>
