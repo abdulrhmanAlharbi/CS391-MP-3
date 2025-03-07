@@ -1,4 +1,5 @@
 import {styled} from "styled-components";
+import {useState} from "react";
 
 const CalculatorContainer = styled.div`
     display: flex;
@@ -19,11 +20,11 @@ const ResultContainer = styled.div`
     overflow: hidden;
 `
 
-const Result = styled.p`
+const Result = styled.p<{negative : boolean}>`
     width: fit-content;
     font-size: calc(3px + 2vw);
     padding-right: 0.2vw;
-    color: #dca060;
+    color: ${(props) => (props.negative ? "red" : "#dca060")};
 `
 const UserInput = styled.div`
     display: flex;
@@ -74,32 +75,95 @@ const StyledButton = styled.button`
     color: white;
 `
 
-//calculator functions start
-
-//calculator functions end
-
 export default function Calculator() {
+    //helper function
+    function GetCalcElement() {
+        const firstInput = document.getElementById("first-input") as HTMLInputElement ;
+        const secondInput = document.getElementById("second-input") as HTMLInputElement ;
+
+        if (!firstInput || !secondInput) {
+            console.log("error: required element not found");
+        }
+        return {firstInput, secondInput};
+    }
+
+    //calculator logic
+    const [result, setResult] = useState("");
+
+    function MyPow() {
+        const {firstInput, secondInput} = GetCalcElement();
+
+        if (!firstInput || !secondInput) {
+            return;
+        }
+
+
+        const n = Number(firstInput.value);
+        let p = Number(secondInput.value);
+
+        let res = 1;
+        let negative = false;
+
+        if (p < 0) {
+            p = p * -1;
+            negative = true;
+        }
+
+        for (let i = 0; i < p; i++){
+            res *= n;
+        }
+
+        if(negative) {
+            res = 1/res;
+        }
+
+        setResult(String(res));
+    }
+
     return (
         <CalculatorContainer>
             <ResultContainer>
-                <Result></Result>
+                <Result id ="resultdiv" negative={Number(result) < 0}>{result}</Result>
             </ResultContainer>
             <UserInput>
-                <NumInputParent>
-                    <label>First Number</label><NumInput type='number' />
+                <NumInputParent >
+                    <label>First Number</label><NumInput type='number' id="first-input" />
                 </NumInputParent>
 
                 <Operator>
-                    <StyledButton>+</StyledButton>
-                    <StyledButton>-</StyledButton>
-                    <StyledButton>*</StyledButton>
-                    <StyledButton>/</StyledButton>
-                    <StyledButton>**</StyledButton>
-                    <StyledButton>clear</StyledButton>
+                    <StyledButton onClick={() => {
+                        const {firstInput, secondInput} = GetCalcElement();
+                        if (firstInput && secondInput) {
+                            setResult(String(Number(firstInput.value) + Number(secondInput.value)));
+                        }}}>+</StyledButton>
+                    <StyledButton onClick={() => {
+                        const {firstInput, secondInput} = GetCalcElement();
+                        if (firstInput && secondInput) {
+                            setResult(String(Number(firstInput.value) - Number(secondInput.value)));
+                        }}}>-</StyledButton>
+                    <StyledButton onClick={() => {
+                        const {firstInput, secondInput} = GetCalcElement();
+                        if (firstInput && secondInput) {
+                            setResult(String(Number(firstInput.value) * Number(secondInput.value)));
+                        }}}>*</StyledButton>
+                    <StyledButton onClick={() => {
+                        const {firstInput, secondInput} = GetCalcElement();
+                        if (firstInput && secondInput) {
+                            setResult(String(Number(firstInput.value) / Number(secondInput.value)));
+                        }}}>/</StyledButton>
+                    <StyledButton onClick={MyPow}>**</StyledButton>
+                    <StyledButton onClick={() => {
+                        const {firstInput, secondInput} = GetCalcElement();
+                        if (firstInput && secondInput) {
+                            firstInput.value = "";
+                            secondInput.value = "";
+                        }
+                        setResult("")
+                    }}>clear</StyledButton>
                 </Operator>
 
                 <NumInputParent>
-                    <label>First Number</label><NumInput type='number' />
+                    <label>Second Number</label><NumInput type='number' id="second-input" />
                 </NumInputParent>
             </UserInput>
         </CalculatorContainer>

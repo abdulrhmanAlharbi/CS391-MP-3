@@ -1,10 +1,15 @@
 import {styled} from "styled-components";
+import {useEffect} from "react";
 
 const StyledMain = styled.main`
     width: 78%;
     height: 100vh;
     display: flex;
     flex-direction: column;
+
+    @media screen and (max-width: 900px) {
+        width: 100%;
+    }
 `
 
 const CurrentpageLabel = styled.div`
@@ -13,6 +18,11 @@ const CurrentpageLabel = styled.div`
     height: 5vh;
     width: 100%;
     background: #343538;
+
+    @media screen and (max-width: 900px) {
+        width: 100%;
+        align-items: center;
+    }
 `
 
 const LabelContainers = styled.div`
@@ -23,12 +33,24 @@ const LabelContainers = styled.div`
     height: 90%;
     background: #232426;
     font-size: calc(3px + 1vw);
+
+    @media screen and (max-width: 900px) {
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+    }
 `
 
 const CurrentPagetxt = styled.h2`
     margin-left: 1vw;
     margin-bottom: 0.2vh;
     color: #b3a6ff;
+    
+    @media screen and (max-width: 900px) {
+        margin-left: unset;
+        margin-bottom: unset;
+    }
+    
 `
 
 /// content
@@ -78,6 +100,10 @@ const StyledSection = styled.section`
 
 
 export default function Home() {
+    useEffect(() => {
+        document.title = "Home | resume";
+    });
+
     return (
         <StyledMain>
             <CurrentpageLabel>
@@ -88,7 +114,7 @@ export default function Home() {
 
             <ImgBioParent>
                 <ImgContainer>
-                    <Img src="../../public/picture.jpeg" alt="A picture of Abdulrhman Alharbi"/>
+                    <Img src="../../../public/picture.jpeg" alt="A picture of Abdulrhman Alharbi"/>
                 </ImgContainer>
 
                 <BioContainer>

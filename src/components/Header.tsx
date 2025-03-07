@@ -8,6 +8,11 @@ const PageHeader = styled.header`
     margin-bottom: 1.5vh;
     display: flex;
     flex-direction: column;
+
+
+    @media screen and (max-width: 900px) {
+        align-items: center;
+    }
 `
 const PageImg = styled.img`
     display: block;
@@ -16,12 +21,7 @@ const PageImg = styled.img`
     border-bottom: #dca060 0.25vh solid;
 `
 
-const Styledh1 = styled.h1`
-`
 
-const Styledp = styled.p`
-
-`
 
 export default function Header() {
     return (

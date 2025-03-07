@@ -6,6 +6,7 @@ import Footer from "./components/Footer";
 
 import Home from "./components/Mains/Home";
 import AboutMe  from "./components/Mains/AboutMe";
+import Projects from "./components/Mains/Projects";
 import Skills  from "./components/Mains/Skills";
 import Experience  from "./components/Mains/Experience";
 import ContactMe  from "./components/Mains/ContactMe";
@@ -23,8 +24,13 @@ const Container = styled.div`
     display: flex;
     flex-direction: row;
     position: relative;
-`
 
+    @media screen and (max-width: 900px) {
+        width: 100%;
+        height: 100vh;
+        flex-direction: column;    }
+    
+`
 
 
 function Root (){
@@ -35,6 +41,7 @@ function Root (){
               <Nav />
               <Routes>
                   <Route path="/" element={<Home />}/>
+                  <Route path="/projects" element={<Projects />}/>
                   <Route path="/about-me" element={<AboutMe />}/>
                   <Route path="/skills" element={<Skills />}/>
                   <Route path="/experience" element={<Experience />}/>

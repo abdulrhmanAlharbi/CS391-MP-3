@@ -1,4 +1,5 @@
 import {styled} from 'styled-components';
+import {useEffect} from "react";
 
 //container
 const StyledMain = styled.main`
@@ -6,29 +7,51 @@ const StyledMain = styled.main`
     height: 100vh;
     display: flex;
     flex-direction: column;
+
+    @media screen and (max-width: 900px) {
+        width: 100%;
+    }
 `
+
 const CurrentpageLabel = styled.div`
     display: flex;  /* to be able to add more labels if needed */
     align-items: flex-end;
     height: 5vh;
     width: 100%;
     background: #343538;
+
+    @media screen and (max-width: 900px) {
+        width: 100%;
+        align-items: center;
+    }
 `
 
 const LabelContainers = styled.div`
     display: flex; /* to move the text using flexbox */
     flex-direction: row;
     align-items: flex-end; /* move to bottom */
-    width: 24%;
+    width: 21%;
     height: 90%;
     background: #232426;
     font-size: calc(3px + 1vw);
+
+    @media screen and (max-width: 900px) {
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+    }
 `
 
 const CurrentPagetxt = styled.h2`
     margin-left: 1vw;
     margin-bottom: 0.2vh;
     color: #b3a6ff;
+
+    @media screen and (max-width: 900px) {
+        margin-left: unset;
+        margin-bottom: unset;
+    }
+
 `
 //
 
@@ -76,6 +99,10 @@ const A = styled.p`
     padding-left: 1.6vw;
 `
 export default function ContactMe() {
+    useEffect(() => {
+        document.title = "Contact Me | resume";
+    });
+
     return (
         <StyledMain>
             <CurrentpageLabel>

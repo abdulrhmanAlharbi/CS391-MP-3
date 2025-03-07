@@ -1,4 +1,6 @@
 import {styled} from 'styled-components';
+import Calculator from "../Calculator";
+import {useEffect} from "react";
 
 //container
 const StyledMain = styled.main`
@@ -6,13 +8,23 @@ const StyledMain = styled.main`
     height: 100vh;
     display: flex;
     flex-direction: column;
+
+    @media screen and (max-width: 900px) {
+        width: 100%;
+    }
 `
+
 const CurrentpageLabel = styled.div`
     display: flex;  /* to be able to add more labels if needed */
     align-items: flex-end;
     height: 5vh;
     width: 100%;
     background: #343538;
+
+    @media screen and (max-width: 900px) {
+        width: 100%;
+        align-items: center;
+    }
 `
 
 const LabelContainers = styled.div`
@@ -23,12 +35,24 @@ const LabelContainers = styled.div`
     height: 90%;
     background: #232426;
     font-size: calc(3px + 1vw);
+
+    @media screen and (max-width: 900px) {
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+    }
 `
 
 const CurrentPagetxt = styled.h2`
     margin-left: 1vw;
     margin-bottom: 0.2vh;
     color: #b3a6ff;
+
+    @media screen and (max-width: 900px) {
+        margin-left: unset;
+        margin-bottom: unset;
+    }
+
 `
 //
 
@@ -56,32 +80,12 @@ const Project1 = styled.div`
     align-items: center;
     border-bottom:  1vh solid #343538;
 `
-const Calculator = styled.div`
-    display: flex;
-    flex-direction: column;
-    width: 70%;
-    height: 90%;
-    padding-top: 5vh;
-    font-family: "Orbitron", serif;
-`
-
-
-
-const Section3 = styled.section`
-    padding: 6vh 3vw 7vh 3vw;
-    color: #dca060;
-    font-size: calc(2px + 1.2vw);
-    border-bottom: 0.4vh dashed #343538;
-
-    h3 {
-        font-size: calc(2px + 1.5vw);
-        color: #ffcf9b;
-    }
-`
-
-
 
 export default function Projects() {
+    useEffect(() => {
+        document.title = "Projects | resume";
+    });
+
     return (
         <StyledMain>
             <CurrentpageLabel>
@@ -99,23 +103,8 @@ export default function Projects() {
                 Calculator
             </Project1Titles>
             <Project1>
-                {
-                    //calculator goes here
-                }
+                <Calculator />
             </Project1>
-
-
-            <Section3>
-                <h3>Interests</h3>
-                <ul>
-                    <li>I have a strong interest in Linux and system administration.</li>
-                    <li>In my free time, I enjoy exploring different Linux distributions and learning about the inner
-                        workings of the kernel.</li>
-                    <li>I also find topics like networking and cybersecurity fascinating and enjoy understanding how
-                        systems interact.</li>
-                </ul>
-            </Section3>
-
 
         </StyledMain>
     )
